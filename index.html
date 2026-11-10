@@ -155,6 +155,20 @@ details.trans>div{background:var(--card);border:1px dashed var(--line);border-ra
 .cl input:checked~span{color:var(--muted);text-decoration:line-through}
 @media (max-width:720px){.cl label{grid-template-columns:24px 1fr}.cl label .ar{grid-column:2}}
 
+/* worksheet keys, charts */
+.key{display:grid;gap:4px;margin:0;padding-inline-start:1.5em}
+.key .q{font-weight:600}
+.key .a{color:var(--ok);font-weight:600}
+.parts td:nth-child(3){font-weight:700;text-align:center;font-variant-numeric:tabular-nums}
+.parts tr.big td{background:var(--tips)}
+.parts td .ar{display:block;margin-top:4px;color:var(--muted);font-size:14.5px}
+.chart th,.chart td{text-align:center;padding:6px 8px}
+.chart td:first-child,.chart th:first-child{text-align:left}
+.chart .y{color:var(--ok);font-weight:700}
+.chart .x{color:var(--bad);font-weight:700}
+.ws{border:1px solid var(--line);border-radius:14px;padding:14px 16px;display:grid;gap:8px}
+.ws>h3{color:var(--tip)}
+.note{font-size:14px;color:var(--muted)}
 /* right column: question distribution */
 aside{position:sticky;top:16px;display:grid;gap:14px;max-height:calc(100vh - 32px);overflow:auto}
 .dist{background:var(--card);border:2px solid var(--ink);border-radius:18px;padding:18px}
@@ -166,6 +180,7 @@ aside{position:sticky;top:16px;display:grid;gap:14px;max-height:calc(100vh - 32p
 .drow .t{font-weight:600;font-size:14.5px;line-height:1.3}
 .drow .t small{display:block;font-weight:500;color:var(--muted);font-size:13px;margin-top:2px}
 .drow .t small span{font-family:var(--f-ar)}
+.drow .t em{display:block;font-style:normal;font-weight:600;color:var(--u);font-size:12.5px;margin-top:4px}
 .total{margin-top:12px;display:flex;justify-content:space-between;align-items:baseline;border-top:2px solid var(--line);padding-top:10px;font-weight:700}
 .total .big{font-size:1.6rem}
 .dnote{font-size:13px;color:var(--muted);margin-top:8px}
@@ -199,7 +214,166 @@ aside{position:sticky;top:16px;display:grid;gap:14px;max-height:calc(100vh - 32p
     <p>Each topic below has: words → grammar → reading practice like the exam → writing model. Answers are hidden: try first, then open.</p>
     <p class="ar" lang="ar">كل وحدة مرتبة هكذا: الكلمات ← القاعدة ← تدريب قراءة يشبه الاختبار ← نموذج كتابة. الأجوبة مخفية: حاول أولاً ثم افتحها.</p>
   </div>
+  <div class="bi">
+    <p><b>Exam: Thursday.</b> The teacher's two worksheets show the exam format. Start with them: <a href="#ws">Teacher's worksheets ↓</a></p>
+    <p class="ar" lang="ar"><b>الامتحان يوم الخميس.</b> ورقتا الأستاذ تُظهران شكل الامتحان، فابدأ بهما: <a href="#ws">أوراق الأستاذ وحلولها ↓</a></p>
+  </div>
 </header>
+
+<section class="card" id="ws" style="--u:var(--tip);--us:var(--tips)">
+  <h2>Teacher's worksheets <span class="ar" lang="ar">أوراق الأستاذ</span> <span class="chip exam">Exam format</span></h2>
+  <div class="bi">
+    <p>The teacher sent two worksheets for Thursday. Both have the same six parts, A–F. They match the six exam questions of Scenario 3, so the exam will probably look like this.</p>
+    <p class="ar" lang="ar">أرسل الأستاذ ورقتي عمل للتحضير لامتحان الخميس. الورقتان بالشكل نفسه: ستة أجزاء من A إلى F، وتطابق أسئلة الامتحان الستة في السيناريو 3. لذلك سيكون الامتحان غالباً بهذا الشكل.</p>
+  </div>
+  <div class="tw"><table class="parts">
+    <thead><tr><th>Part</th><th>What you do · <span lang="ar">ماذا تفعل</span></th><th>Points</th></tr></thead>
+    <tbody>
+      <tr><td>A</td><td>Read a text about a person. Answer 7 questions. <a href="#u1-read">Practice ↓</a><span class="ar" lang="ar">تقرأ نصاً عن شخص وتجيب عن 7 أسئلة</span></td><td>14</td></tr>
+      <tr><td>B</td><td>Write the word for each meaning. Two extra words. <a href="#u1-mean">Practice ↓</a><span class="ar" lang="ar">تكتب الكلمة المناسبة لكل معنى، وفي الصندوق كلمتان زائدتان</span></td><td>14</td></tr>
+      <tr><td>C</td><td>Write 2 sentences comparing two people. <a href="#u1-write">Practice ↓</a><span class="ar" lang="ar">تكتب جملتين تقارن فيهما بين شخصين</span></td><td>10</td></tr>
+      <tr><td>D</td><td>Read a sports text. Complete 7 sentences. <a href="#u2-read">Practice ↓</a><span class="ar" lang="ar">تقرأ نصاً عن الرياضة وتكمل 7 جمل</span></td><td>21</td></tr>
+      <tr><td>E</td><td>Read descriptions. Write the name of the sport. One extra. <a href="#u2-def">Practice ↓</a><span class="ar" lang="ar">تقرأ وصفاً وتكتب اسم الرياضة، وفي الصندوق رياضة زائدة</span></td><td>16</td></tr>
+      <tr class="big"><td>F</td><td>Look at a weekly chart. Write 5 sentences with frequency adverbs. <a href="#u2-chart">Practice ↓</a><span class="ar" lang="ar">تنظر إلى جدول أسبوعي وتكتب 5 جمل بظروف التكرار: <b>أعلى درجة</b></span></td><td>25</td></tr>
+    </tbody>
+  </table></div>
+  <p class="note">Points are from worksheet 1. <span lang="ar" dir="rtl" style="font-family:var(--f-ar)">الدرجات من الورقة الأولى، وقد تختلف قليلاً في الامتحان.</span></p>
+
+  <div class="ws">
+    <h3>Worksheet 1 · “My Brother” (<bdi>the picture sheet</bdi>) <span class="ar" lang="ar" style="font-weight:600">الورقة الأولى (الصورة)</span></h3>
+    <p class="note" lang="ar" dir="rtl" style="font-family:var(--f-ar)">حلّ الورقة بنفسك أولاً، ثم افتح كل جزء وصحّح.</p>
+    <details class="ans"><summary>A · Ece's brother Arda</summary><div>
+      <ol class="key">
+        <li><span class="q">How old is Arda?</span> → <span class="a">He is 14 years old.</span></li>
+        <li><span class="q">What colour are his eyes?</span> → <span class="a">They are brown.</span></li>
+        <li><span class="q">What is he like at home?</span> → <span class="a">He is helpful.</span></li>
+        <li><span class="q">What does he like doing in his free time?</span> → <span class="a">He loves playing computer games.</span></li>
+        <li><span class="q">Is he an outgoing boy?</span> → <span class="a">No, he isn't.</span></li>
+        <li><span class="q">What does he do with his homework?</span> → <span class="a">He does it regularly.</span></li>
+        <li><span class="q">Why is Ece proud of him?</span> → <span class="a">Because he is responsible and trustworthy.</span></li>
+      </ol>
+      <p class="ar" lang="ar" style="margin-top:8px">سؤال «What is he like at home?» عن شخصيته في البيت، والنص يقول helpful at home. وسؤال يبدأ بـ Is جوابه Yes, he is أو No, he isn't. والنص يقول he isn't very outgoing، فالجواب No.</p>
+    </div></details>
+    <details class="ans"><summary>B · Words for meanings</summary><div>
+      <ol class="key">
+        <li><span class="q">doesn't give up easily, always wants her own way</span> → <span class="a">stubborn</span></li>
+        <li><span class="q">can talk about many things for hours</span> → <span class="a">talkative</span></li>
+        <li><span class="q">very kind, likes sharing with others</span> → <span class="a">generous</span></li>
+        <li><span class="q">hair is not wavy or curly, it is flat</span> → <span class="a">straight</span></li>
+        <li><span class="q">stays calm even in difficult situations</span> → <span class="a">patient</span></li>
+        <li><span class="q">a bit overweight</span> → <span class="a">plump</span></li>
+        <li><span class="q">doesn't behave politely, interrupts others</span> → <span class="a">impolite</span></li>
+      </ol>
+      <p class="ar" lang="ar" style="margin-top:8px">الكلمتان الزائدتان: <b dir="ltr">brave</b> و<b dir="ltr">creative</b>. اشطب كل كلمة بعد أن تستعملها، فيسهل عليك الباقي.</p>
+    </div></details>
+    <details class="ans"><summary>C · Compare Elif (15) and Zeynep (13)</summary><div>
+      <ol class="key">
+        <li><span class="a">Zeynep's hair is curlier than Elif's hair.</span></li>
+        <li><span class="a">Elif's hair is darker than Zeynep's hair.</span></li>
+      </ol>
+      <p style="margin-top:6px">Also correct: Elif's hair is straighter than Zeynep's hair. · Zeynep is younger than Elif.</p>
+      <p class="ar" lang="ar" style="margin-top:8px">المثال استعمل العمر (<bdi>older</bdi>)، فقارن بشيء آخر تراه في الصورة: شعر زينب مجعّد وشعر إليف ناعم وأغمق.</p>
+    </div></details>
+    <details class="ans"><summary>D · Arda and basketball</summary><div>
+      <ol class="key">
+        <li>Arda's favourite sport is <span class="a">basketball</span>.</li>
+        <li>Basketball is a <span class="a">team</span> sport.</li>
+        <li>He has training <span class="a">three times</span> a week.</li>
+        <li>He gets up at <span class="a">6:30</span> on training days.</li>
+        <li>He always drinks <span class="a">plenty of water</span>.</li>
+        <li>They are going to play a match next <span class="a">Saturday</span>.</li>
+        <li>He hopes they can <span class="a">win</span> the match.</li>
+      </ol>
+      <p class="ar" lang="ar" style="margin-top:8px">انقل الكلمات من النص كما هي، ثم اقرأ الجملة كاملة لتتأكد أنها صحيحة.</p>
+    </div></details>
+    <details class="ans"><summary>E · Name the sport</summary><div>
+      <ol class="key">
+        <li><span class="a">Football</span>: team sport, ball, large field, score goals</li>
+        <li><span class="a">Rowing</span>: on water, sit in a boat, use oars</li>
+        <li><span class="a">Cycling</span>: ride a bike, good for heart and legs</li>
+        <li><span class="a">Gymnastics</span>: balance, strength and flexibility</li>
+      </ol>
+      <p class="ar" lang="ar" style="margin-top:8px">الرياضة الزائدة: <b dir="ltr">karate</b>.</p>
+    </div></details>
+    <details class="ans"><summary>F · Mert's week (5 sentences)</summary><div>
+      <ol class="key">
+        <li><span class="a">Mert usually plays football.</span> <span class="note">(5 days)</span></li>
+        <li><span class="a">He does his homework on weekdays.</span> <span class="note">(Mon–Fri) · or: He usually does his homework.</span></li>
+        <li><span class="a">He usually reads a book.</span> <span class="note">(5 days)</span></li>
+        <li><span class="a">He watches a movie three times a week.</span> <span class="note">(3 days) · or: He often watches a movie.</span></li>
+        <li><span class="a">He never goes to sleep early at weekends.</span> <span class="note">· or: He usually goes to sleep early.</span></li>
+      </ol>
+      <p class="ar" lang="ar" style="margin-top:8px">عُدّ العلامات في كل سطر: 5 أيام = usually، و3 أيام = often أو three times a week. ولا تنسَ حرف s مع He: plays · does · reads · watches · goes.</p>
+    </div></details>
+  </div>
+
+  <div class="ws">
+    <h3>Worksheet 2 · “My Close Friend” (<bdi>the Word file</bdi>) <span class="ar" lang="ar" style="font-weight:600">الورقة الثانية (ملف Word)</span></h3>
+    <details class="ans"><summary>A · Ece's friend Melis</summary><div>
+      <ol class="key">
+        <li><span class="q">How old is Melis?</span> → <span class="a">She is 12 years old.</span></li>
+        <li><span class="q">What colour are Melis's eyes?</span> → <span class="a">They are green.</span></li>
+        <li><span class="q">What is her hair like?</span> → <span class="a">It is straight and brown.</span></li>
+        <li><span class="q">Why does everybody like spending time with her?</span> → <span class="a">Because she is very cheerful.</span></li>
+        <li><span class="q">What does she do when Ece has difficulty with homework?</span> → <span class="a">She explains it to her.</span></li>
+        <li><span class="q">Who is tidier, Melis or Duru?</span> → <span class="a">Duru is tidier than Melis.</span></li>
+        <li><span class="q">Why does Ece like Melis?</span> → <span class="a">Because she is generous and honest.</span></li>
+      </ol>
+      <p class="ar" lang="ar" style="margin-top:8px"><b>السؤال 1 فخ:</b> النص لا يذكر عمر ميليس. إيجه عمرها 13، وهي أكبر من ميليس بسنة، إذن ميليس عمرها 12.<br><b>السؤال 5:</b> النص يقول she explains it to <b>me</b>، وفي الجواب عن إيجه نغيّر me إلى <b>her</b>.</p>
+    </div></details>
+    <details class="ans"><summary>B · Words for meanings</summary><div>
+      <ol class="key">
+        <li><span class="q">always arrives on time</span> → <span class="a">punctual</span></li>
+        <li><span class="q">likes meeting new people</span> → <span class="a">outgoing</span></li>
+        <li><span class="q">never tells lies</span> → <span class="a">honest</span></li>
+        <li><span class="q">doesn't like sharing his toys</span> → <span class="a">selfish</span></li>
+        <li><span class="q">speaks impolitely to people</span> → <span class="a">rude</span></li>
+        <li><span class="q">hair isn't curly or wavy</span> → <span class="a">straight</span></li>
+        <li><span class="q">loves giving things to other people</span> → <span class="a">generous</span></li>
+      </ol>
+      <p class="ar" lang="ar" style="margin-top:8px">الكلمتان الزائدتان: <b dir="ltr">shy</b> و<b dir="ltr">overweight</b>.</p>
+    </div></details>
+    <details class="ans"><summary>C · Compare Arda and Bora</summary><div>
+      <ol class="key">
+        <li><span class="a">Arda is taller than Bora.</span></li>
+        <li><span class="a">Bora's hair is longer than Arda's hair.</span></li>
+      </ol>
+      <p style="margin-top:6px">Also correct: Bora is shorter than Arda. · Arda's hair is shorter than Bora's hair. · Arda's hair is darker than Bora's hair.</p>
+      <p class="ar" lang="ar" style="margin-top:8px">المثال استعمل العمر، فقارن بالطول (170 و155) والشعر (قصير وطويل، أسود وبنّي).</p>
+    </div></details>
+    <details class="ans"><summary>D · Mert and basketball</summary><div>
+      <ol class="key">
+        <li>Mert practises <span class="a">three times</span> a week.</li>
+        <li>Basketball is a <span class="a">team</span> sport.</li>
+        <li>He gets up at <span class="a">7:00</span> on practice days.</li>
+        <li>He never <span class="a">drinks energy drinks</span>.</li>
+        <li>On Saturdays, he usually <span class="a">meets his friends</span>.</li>
+        <li>The tournament is in <span class="a">Ankara</span>.</li>
+        <li>He hopes his team can win a <span class="a">medal</span>.</li>
+      </ol>
+      <p class="ar" lang="ar" style="margin-top:8px"><b>انتبه في 4 و5:</b> النص يقول I never drink وI usually meet my friends، لكن الجملة عن He، فنضيف s ونغيّر my إلى his: drinks · meets his friends.</p>
+    </div></details>
+    <details class="ans"><summary>E · Name the sport</summary><div>
+      <ol class="key">
+        <li><span class="a">Basketball</span>: court, throw the ball into a hoop</li>
+        <li><span class="a">Skiing</span>: winter, snow, special boots and two long skis</li>
+        <li><span class="a">Archery</span>: bow and arrows, hit a target</li>
+        <li><span class="a">Volleyball</span>: over a net, hit the ball with your hands</li>
+      </ol>
+      <p class="ar" lang="ar" style="margin-top:8px">الرياضة الزائدة: <b dir="ltr">cycling</b>.</p>
+    </div></details>
+    <details class="ans"><summary>F · Selin's week (5 sentences)</summary><div>
+      <ol class="key">
+        <li><span class="a">Selin plays volleyball every day.</span> <span class="note">(7 days) · or: She always plays volleyball.</span></li>
+        <li><span class="a">She goes jogging twice a week.</span> <span class="note">(Mon, Thu)</span></li>
+        <li><span class="a">She never eats fast food.</span> <span class="note">(0 days)</span></li>
+        <li><span class="a">She always drinks water after exercise.</span> <span class="note">(7 days)</span></li>
+        <li><span class="a">She usually goes to bed early.</span> <span class="note">(5 days)</span></li>
+      </ol>
+      <p class="ar" lang="ar" style="margin-top:8px">7 أيام = always أو every day، ويومان = twice a week، وصفر = never، و5 أيام = usually.</p>
+    </div></details>
+  </div>
+</section>
 
 <!-- ===================== UNIT 1 ===================== -->
 <section class="unit u1" id="u1">
@@ -261,6 +435,8 @@ aside{position:sticky;top:16px;display:grid;gap:14px;max-height:calc(100vh - 32p
       <tr><td>thin</td><td lang="tr">zayıf</td><td lang="ar" dir="rtl">نحيل</td></tr>
       <tr><td>overweight</td><td lang="tr">kilolu</td><td lang="ar" dir="rtl">وزنه زائد</td></tr>
       <tr><td>well-built</td><td lang="tr">iri yapılı</td><td lang="ar" dir="rtl">ضخم البنية</td></tr>
+      <tr><td>plump</td><td lang="tr">tombul, toplu</td><td lang="ar" dir="rtl">ممتلئ الجسم قليلاً</td></tr>
+      <tr><td>of medium build</td><td lang="tr">orta yapılı</td><td lang="ar" dir="rtl">متوسط البنية</td></tr>
       <tr class="grp"><td colspan="3">Hair · Saç · الشعر</td></tr>
       <tr><td>long / short</td><td lang="tr">uzun / kısa</td><td lang="ar" dir="rtl">طويل / قصير</td></tr>
       <tr><td>shoulder-length</td><td lang="tr">omuz hizasında</td><td lang="ar" dir="rtl">يصل إلى الكتفين</td></tr>
@@ -301,7 +477,7 @@ aside{position:sticky;top:16px;display:grid;gap:14px;max-height:calc(100vh - 32p
       <tr><td>helpful</td><td lang="tr">yardımsever</td><td lang="ar" dir="rtl">يحب مساعدة الآخرين</td></tr>
       <tr><td>hardworking <span class="opp">↔ lazy</span></td><td lang="tr">çalışkan ↔ tembel</td><td lang="ar" dir="rtl">مجتهد ↔ كسول</td></tr>
       <tr><td>honest</td><td lang="tr">dürüst</td><td lang="ar" dir="rtl">صادق</td></tr>
-      <tr><td>polite <span class="opp">↔ rude</span></td><td lang="tr">kibar ↔ kaba</td><td lang="ar" dir="rtl">مؤدب ↔ وقح</td></tr>
+      <tr><td>polite <span class="opp">↔ rude / impolite</span></td><td lang="tr">kibar ↔ kaba, nezaketsiz</td><td lang="ar" dir="rtl">مؤدب ↔ وقح، غير مؤدب</td></tr>
       <tr><td>outgoing / sociable <span class="opp">↔ shy</span></td><td lang="tr">dışa dönük, sosyal ↔ utangaç</td><td lang="ar" dir="rtl">اجتماعي منفتح ↔ خجول</td></tr>
       <tr><td>talkative <span class="opp">↔ quiet</span></td><td lang="tr">konuşkan ↔ sessiz</td><td lang="ar" dir="rtl">كثير الكلام ↔ هادئ قليل الكلام</td></tr>
       <tr><td>funny <span class="opp">↔ serious</span></td><td lang="tr">komik ↔ ciddi</td><td lang="ar" dir="rtl">مضحك ظريف ↔ جدّي</td></tr>
@@ -314,6 +490,9 @@ aside{position:sticky;top:16px;display:grid;gap:14px;max-height:calc(100vh - 32p
       <tr><td>cheerful</td><td lang="tr">neşeli</td><td lang="ar" dir="rtl">مرح بشوش</td></tr>
       <tr><td>stubborn</td><td lang="tr">inatçı</td><td lang="ar" dir="rtl">عنيد</td></tr>
       <tr><td>punctual</td><td lang="tr">dakik</td><td lang="ar" dir="rtl">يلتزم بالمواعيد</td></tr>
+      <tr><td>creative</td><td lang="tr">yaratıcı</td><td lang="ar" dir="rtl">مبدع، صاحب أفكار جديدة</td></tr>
+      <tr><td>responsible</td><td lang="tr">sorumluluk sahibi</td><td lang="ar" dir="rtl">يتحمّل المسؤولية</td></tr>
+      <tr><td>trustworthy</td><td lang="tr">güvenilir</td><td lang="ar" dir="rtl">جدير بالثقة</td></tr>
     </tbody>
   </table></div>
   <div class="box">
@@ -479,6 +658,56 @@ aside{position:sticky;top:16px;display:grid;gap:14px;max-height:calc(100vh - 32p
   </ol>
 </section>
 
+<section class="card u1" id="u1-mean">
+  <h2>Meaning → word <span class="ar" lang="ar">المعنى ← الكلمة</span> <span class="chip exam">Part B</span></h2>
+  <div class="bi">
+    <p>The sentence describes what a person does. You write the adjective. Learn the clue words on the left.</p>
+    <p class="ar" lang="ar">الجملة تصف ما يفعله الشخص، وأنت تكتب الصفة. احفظ الكلمات المفتاحية في العمود الأول، فهي التي تدلّك على الجواب.</p>
+  </div>
+  <div class="tw"><table>
+    <thead><tr><th>If you read…</th><th>Write</th><th lang="ar">المعنى</th></tr></thead>
+    <tbody>
+      <tr><td style="font-weight:400">always arrives on time</td><td>punctual</td><td lang="ar" dir="rtl">يأتي في الوقت دائماً</td></tr>
+      <tr><td style="font-weight:400">never tells lies</td><td>honest</td><td lang="ar" dir="rtl">لا يكذب أبداً</td></tr>
+      <tr><td style="font-weight:400">likes meeting new people</td><td>outgoing / sociable</td><td lang="ar" dir="rtl">يحب التعرّف على الناس</td></tr>
+      <tr><td style="font-weight:400">gets nervous with new people, doesn't talk much</td><td>shy</td><td lang="ar" dir="rtl">يرتبك أمام الغرباء</td></tr>
+      <tr><td style="font-weight:400">loves giving / sharing things</td><td>generous</td><td lang="ar" dir="rtl">يحب العطاء والمشاركة</td></tr>
+      <tr><td style="font-weight:400">doesn't like sharing</td><td>selfish</td><td lang="ar" dir="rtl">لا يحب المشاركة</td></tr>
+      <tr><td style="font-weight:400">speaks or behaves impolitely, interrupts others</td><td>rude / impolite</td><td lang="ar" dir="rtl">يتكلم بقلة أدب ويقاطع الآخرين</td></tr>
+      <tr><td style="font-weight:400">doesn't give up, always wants his own way</td><td>stubborn</td><td lang="ar" dir="rtl">لا يتراجع ويريد رأيه دائماً</td></tr>
+      <tr><td style="font-weight:400">talks for hours</td><td>talkative</td><td lang="ar" dir="rtl">يتكلم ساعات</td></tr>
+      <tr><td style="font-weight:400">stays calm, waits without getting angry</td><td>patient</td><td lang="ar" dir="rtl">يبقى هادئاً ولا يغضب</td></tr>
+      <tr><td style="font-weight:400">isn't afraid of anything</td><td>brave</td><td lang="ar" dir="rtl">لا يخاف</td></tr>
+      <tr><td style="font-weight:400">has new and different ideas</td><td>creative</td><td lang="ar" dir="rtl">عنده أفكار جديدة</td></tr>
+      <tr><td style="font-weight:400">works or studies a lot</td><td>hardworking</td><td lang="ar" dir="rtl">يعمل ويدرس كثيراً</td></tr>
+      <tr><td style="font-weight:400">doesn't like working</td><td>lazy</td><td lang="ar" dir="rtl">لا يحب العمل</td></tr>
+      <tr><td style="font-weight:400">likes helping others</td><td>helpful</td><td lang="ar" dir="rtl">يحب مساعدة الآخرين</td></tr>
+      <tr><td style="font-weight:400">makes people laugh</td><td>funny</td><td lang="ar" dir="rtl">يُضحك الناس</td></tr>
+      <tr><td style="font-weight:400">is always happy and smiling</td><td>cheerful</td><td lang="ar" dir="rtl">سعيد ومبتسم دائماً</td></tr>
+      <tr><td style="font-weight:400">keeps things in order</td><td>tidy</td><td lang="ar" dir="rtl">يرتّب أغراضه</td></tr>
+      <tr><td style="font-weight:400">does his duties, you can trust him</td><td>responsible / trustworthy</td><td lang="ar" dir="rtl">يقوم بواجباته ويُوثق به</td></tr>
+      <tr><td style="font-weight:400">hair is not curly or wavy</td><td>straight</td><td lang="ar" dir="rtl">الشعر ليس مجعّداً ولا مموّجاً</td></tr>
+      <tr><td style="font-weight:400">a bit overweight</td><td>plump</td><td lang="ar" dir="rtl">وزنه زائد قليلاً</td></tr>
+    </tbody>
+  </table></div>
+  <h3>Your turn <span class="ar" lang="ar" style="font-weight:600">دورك</span></h3>
+  <div class="text">
+    <p class="title">brave • lazy • cheerful • curly • shy • tidy • creative • helpful • selfish</p>
+    <ol>
+      <li>She always keeps her room in order. → ………</li>
+      <li>He isn't afraid of the dark or high places. → ………</li>
+      <li>My sister has a lot of new ideas and draws amazing pictures. → ………</li>
+      <li>He doesn't want to do anything. He sleeps all day. → ………</li>
+      <li>She is always happy and smiles a lot. → ………</li>
+      <li>He gets nervous and goes red when he meets new people. → ………</li>
+      <li>Her hair has a lot of small rings. → ………</li>
+    </ol>
+  </div>
+  <details class="ans"><summary>Answer · الجواب</summary><div>
+    <p>1 tidy · 2 brave · 3 creative · 4 lazy · 5 cheerful · 6 shy · 7 curly — extra: helpful, selfish</p>
+  </div></details>
+</section>
+
 <section class="card u1" id="u1-write">
   <h2>Writing: compare two people <span class="ar" lang="ar">الكتابة: قارن بين شخصين</span> <span class="chip exam">Exam: 1 question</span></h2>
   <div class="bi">
@@ -551,9 +780,9 @@ aside{position:sticky;top:16px;display:grid;gap:14px;max-height:calc(100vh - 32p
     <div><h3>play</h3><p lang="ar" dir="rtl" style="font-family:var(--f-ar)">ألعاب فيها كرة أو منافسة</p>
       <ul><li>football</li><li>basketball</li><li>volleyball</li><li>tennis</li><li>table tennis</li><li>badminton</li><li>chess</li></ul></div>
     <div><h3>go</h3><p lang="ar" dir="rtl" style="font-family:var(--f-ar)">نشاط ينتهي بـ ing</p>
-      <ul><li>swimming</li><li>cycling</li><li>running</li><li>skiing</li><li>ice skating</li><li>hiking</li><li>horse riding</li></ul></div>
+      <ul><li>swimming</li><li>cycling</li><li>running</li><li>jogging</li><li>rowing</li><li>skiing</li><li>ice skating</li><li>hiking</li><li>horse riding</li></ul></div>
     <div><h3>do</h3><p lang="ar" dir="rtl" style="font-family:var(--f-ar)">فنون قتالية وتمارين فردية بلا كرة</p>
-      <ul><li>karate</li><li>judo</li><li>taekwondo</li><li>gymnastics</li><li>yoga</li><li>aerobics</li><li>wrestling</li></ul></div>
+      <ul><li>karate</li><li>judo</li><li>taekwondo</li><li>gymnastics</li><li>yoga</li><li>aerobics</li><li>archery</li><li>wrestling</li></ul></div>
   </div>
   <div class="box trap">
     <div class="bi">
@@ -582,6 +811,9 @@ aside{position:sticky;top:16px;display:grid;gap:14px;max-height:calc(100vh - 32p
       <tr><td>horse riding</td><td lang="tr">ata binme</td><td lang="ar" dir="rtl">ركوب الخيل</td></tr>
       <tr><td>gymnastics</td><td lang="tr">jimnastik</td><td lang="ar" dir="rtl">الجمباز</td></tr>
       <tr><td>wrestling</td><td lang="tr">güreş</td><td lang="ar" dir="rtl">المصارعة</td></tr>
+      <tr><td>rowing</td><td lang="tr">kürek sporu</td><td lang="ar" dir="rtl">التجديف</td></tr>
+      <tr><td>archery</td><td lang="tr">okçuluk</td><td lang="ar" dir="rtl">الرماية بالقوس</td></tr>
+      <tr><td>jogging</td><td lang="tr">yavaş koşu</td><td lang="ar" dir="rtl">الهرولة</td></tr>
       <tr class="grp"><td colspan="3">Places &amp; things · Yerler ve araçlar · الأماكن والأدوات</td></tr>
       <tr><td>a court</td><td lang="tr">kort, saha (tenis, basketbol)</td><td lang="ar" dir="rtl">ملعب (تنس، سلة)</td></tr>
       <tr><td>a pitch / a field</td><td lang="tr">futbol sahası</td><td lang="ar" dir="rtl">ملعب كرة القدم</td></tr>
@@ -590,6 +822,15 @@ aside{position:sticky;top:16px;display:grid;gap:14px;max-height:calc(100vh - 32p
       <tr><td>a stadium</td><td lang="tr">stadyum</td><td lang="ar" dir="rtl">ملعب كبير (استاد)</td></tr>
       <tr><td>a racket · a ball · a net</td><td lang="tr">raket · top · file</td><td lang="ar" dir="rtl">مضرب · كرة · شبكة</td></tr>
       <tr><td>a helmet · goggles</td><td lang="tr">kask · yüzücü gözlüğü</td><td lang="ar" dir="rtl">خوذة · نظارة سباحة</td></tr>
+      <tr><td>a hoop</td><td lang="tr">pota</td><td lang="ar" dir="rtl">حلقة السلة</td></tr>
+      <tr><td>a boat · oars</td><td lang="tr">tekne · kürekler</td><td lang="ar" dir="rtl">قارب · مجاذيف</td></tr>
+      <tr><td>a bow · arrows · a target</td><td lang="tr">yay · oklar · hedef</td><td lang="ar" dir="rtl">قوس · سهام · هدف</td></tr>
+      <tr><td>skis · special boots</td><td lang="tr">kayak takımı · özel botlar</td><td lang="ar" dir="rtl">زلّاجات · أحذية خاصة</td></tr>
+      <tr><td>a sports hall · indoors · outdoors</td><td lang="tr">spor salonu · kapalı alanda · açık alanda</td><td lang="ar" dir="rtl">صالة رياضية · في الداخل · في الخارج</td></tr>
+      <tr><td>teammates · practise</td><td lang="tr">takım arkadaşları · antrenman yapmak</td><td lang="ar" dir="rtl">زملاء الفريق · يتدرّب</td></tr>
+      <tr><td>a tournament · a medal</td><td lang="tr">turnuva · madalya</td><td lang="ar" dir="rtl">بطولة · ميدالية</td></tr>
+      <tr><td>stretching</td><td lang="tr">esneme hareketleri</td><td lang="ar" dir="rtl">تمارين الإطالة</td></tr>
+      <tr><td>balance · strength · flexibility</td><td lang="tr">denge · güç · esneklik</td><td lang="ar" dir="rtl">توازن · قوة · مرونة</td></tr>
       <tr><td>a team · a player · a coach</td><td lang="tr">takım · oyuncu · antrenör</td><td lang="ar" dir="rtl">فريق · لاعب · مدرّب</td></tr>
       <tr><td>a match · training</td><td lang="tr">maç · antrenman</td><td lang="ar" dir="rtl">مباراة · تدريب</td></tr>
       <tr><td>win · lose</td><td lang="tr">kazanmak · kaybetmek</td><td lang="ar" dir="rtl">يفوز · يخسر</td></tr>
@@ -772,6 +1013,116 @@ aside{position:sticky;top:16px;display:grid;gap:14px;max-height:calc(100vh - 32p
     <li><p>Why does she never watch TV in the evening?</p>
       <details class="ans"><summary>Answer · الجواب</summary><div><p>Because she goes to bed early.</p></div></details></li>
   </ol>
+  <h3>Complete the sentences (<bdi>like Part D</bdi>) <span class="ar" lang="ar" style="font-weight:600">أكمل الجمل كما في الجزء D</span></h3>
+  <div class="box tip"><div class="bi">
+    <p>Copy the words from the text, then read the whole sentence. If the text says <b>I</b> and the sentence says <b>She</b>, add -s and change my → her.</p>
+    <p class="ar" lang="ar">انقل الكلمات من النص ثم اقرأ الجملة كلها. إذا كان النص يقول I والجملة تقول She أو He، فأضف s للفعل وغيّر my إلى her أو his.</p>
+  </div></div>
+  <ol class="qs">
+    <li><p>Defne gets up at ……… .</p><details class="ans"><summary>Answer · الجواب</summary><div><p>seven o'clock</p></div></details></li>
+    <li><p>Before school, she ……… in the park.</p><details class="ans"><summary>Answer · الجواب</summary><div><p>goes running</p></div></details></li>
+    <li><p>She plays volleyball on ……… and ……… .</p><details class="ans"><summary>Answer · الجواب</summary><div><p>Mondays · Wednesdays</p></div></details></li>
+    <li><p>She usually does ……… on Fridays.</p><details class="ans"><summary>Answer · الجواب</summary><div><p>gymnastics</p></div></details></li>
+    <li><p>Her brother is ……… than her at tennis.</p><details class="ans"><summary>Answer · الجواب</summary><div><p>better</p></div></details></li>
+    <li><p>She never ……… in the evening.</p><details class="ans"><summary>Answer · الجواب</summary><div><p>watches TV (the text says “I never watch TV”, so we add -es)</p></div></details></li>
+  </ol>
+</section>
+
+<section class="card u2" id="u2-def">
+  <h2>Name the sport <span class="ar" lang="ar">ما اسم الرياضة؟</span> <span class="chip exam">Part E</span></h2>
+  <div class="bi">
+    <p>Each description has one or two clue words. Find them and you have the answer.</p>
+    <p class="ar" lang="ar">في كل وصف كلمة أو كلمتان تدلّان على الرياضة. ابحث عنها تجد الجواب فوراً.</p>
+  </div>
+  <div class="tw"><table>
+    <thead><tr><th>Clue words</th><th>Sport</th><th lang="ar">الكلمات المفتاحية</th></tr></thead>
+    <tbody>
+      <tr><td style="font-weight:400">team, ball, large field, score goals</td><td>football</td><td lang="ar" dir="rtl">فريق، ملعب كبير، أهداف</td></tr>
+      <tr><td style="font-weight:400">team, court, throw the ball into a hoop</td><td>basketball</td><td lang="ar" dir="rtl">فريق، ملعب، رمي الكرة في الحلقة</td></tr>
+      <tr><td style="font-weight:400">team, over a net, hit the ball with your hands</td><td>volleyball</td><td lang="ar" dir="rtl">فوق الشبكة، ضرب الكرة باليد</td></tr>
+      <tr><td style="font-weight:400">racket, net, court</td><td>tennis</td><td lang="ar" dir="rtl">مضرب، شبكة، ملعب</td></tr>
+      <tr><td style="font-weight:400">a small table, a small ball, bats</td><td>table tennis</td><td lang="ar" dir="rtl">طاولة صغيرة، كرة صغيرة</td></tr>
+      <tr><td style="font-weight:400">on water, sit in a boat, oars</td><td>rowing</td><td lang="ar" dir="rtl">على الماء، قارب، مجاذيف</td></tr>
+      <tr><td style="font-weight:400">pool or sea, move your arms and legs in water</td><td>swimming</td><td lang="ar" dir="rtl">مسبح أو بحر، تحريك الذراعين والساقين</td></tr>
+      <tr><td style="font-weight:400">ride a bike, heart and legs</td><td>cycling</td><td lang="ar" dir="rtl">دراجة، القلب والساقان</td></tr>
+      <tr><td style="font-weight:400">winter, snow, special boots, two long skis</td><td>skiing</td><td lang="ar" dir="rtl">شتاء، ثلج، زلّاجتان طويلتان</td></tr>
+      <tr><td style="font-weight:400">ice, skates</td><td>ice skating</td><td lang="ar" dir="rtl">جليد، أحذية تزلج</td></tr>
+      <tr><td style="font-weight:400">bow and arrows, hit a target</td><td>archery</td><td lang="ar" dir="rtl">قوس وسهام، إصابة الهدف</td></tr>
+      <tr><td style="font-weight:400">balance, strength, flexibility</td><td>gymnastics</td><td lang="ar" dir="rtl">توازن، قوة، مرونة</td></tr>
+      <tr><td style="font-weight:400">martial art, kicks and punches, belts</td><td>karate</td><td lang="ar" dir="rtl">فن قتالي، ركلات ولكمات، أحزمة</td></tr>
+      <tr><td style="font-weight:400">walk for hours in mountains or nature</td><td>hiking</td><td lang="ar" dir="rtl">مشي طويل في الجبال والطبيعة</td></tr>
+      <tr><td style="font-weight:400">run slowly to stay fit</td><td>jogging</td><td lang="ar" dir="rtl">جري بطيء للياقة</td></tr>
+      <tr><td style="font-weight:400">ride a horse</td><td>horse riding</td><td lang="ar" dir="rtl">ركوب الحصان</td></tr>
+      <tr><td style="font-weight:400">two people try to put each other on the ground</td><td>wrestling</td><td lang="ar" dir="rtl">كل لاعب يحاول إسقاط الآخر أرضاً</td></tr>
+    </tbody>
+  </table></div>
+  <h3>Your turn <span class="ar" lang="ar" style="font-weight:600">دورك</span></h3>
+  <div class="text">
+    <p class="title">tennis • swimming • karate • ice skating • hiking</p>
+    <ol>
+      <li>……… is a martial art. People wear white clothes and coloured belts.</li>
+      <li>……… is a water sport. You move your arms and legs in a pool or in the sea.</li>
+      <li>……… is a winter sport. You wear special boots and move on ice.</li>
+      <li>……… is played on a court. Players hit a ball over a net with a racket.</li>
+    </ol>
+  </div>
+  <details class="ans"><summary>Answer · الجواب</summary><div>
+    <p>1 Karate · 2 Swimming · 3 Ice skating · 4 Tennis — extra: hiking</p>
+  </div></details>
+</section>
+
+<section class="card u2" id="u2-chart">
+  <h2>Chart → 5 sentences <span class="ar" lang="ar">الجدول ← 5 جمل</span> <span class="chip exam">Part F · 25 points</span></h2>
+  <div class="bi">
+    <p>This part has the most points. Count the ticks in each row, choose the word, and write one sentence for each row.</p>
+    <p class="ar" lang="ar">هذا الجزء أعلى درجة في الورقة. عُدّ علامات ✓ في كل سطر، واختر الكلمة المناسبة، واكتب جملة واحدة لكل سطر.</p>
+  </div>
+  <div class="tw"><table>
+    <thead><tr><th>Ticks ✓</th><th>Write</th><th lang="ar">المعنى</th></tr></thead>
+    <tbody>
+      <tr><td>7 of 7</td><td>always · every day</td><td lang="ar" dir="rtl">كل الأيام: دائماً</td></tr>
+      <tr><td>5–6</td><td>usually</td><td lang="ar" dir="rtl">معظم الأيام: عادةً</td></tr>
+      <tr><td>3–4</td><td>often · three times a week</td><td lang="ar" dir="rtl">كثيراً · ثلاث مرات في الأسبوع</td></tr>
+      <tr><td>2</td><td>twice a week · sometimes</td><td lang="ar" dir="rtl">مرتين في الأسبوع · أحياناً</td></tr>
+      <tr><td>1</td><td>once a week · rarely</td><td lang="ar" dir="rtl">مرة في الأسبوع · نادراً</td></tr>
+      <tr><td>0</td><td>never</td><td lang="ar" dir="rtl">أبداً</td></tr>
+      <tr><td>Mon–Fri only</td><td>on weekdays</td><td lang="ar" dir="rtl">أيام الدراسة فقط</td></tr>
+      <tr><td>Sat–Sun only</td><td>at weekends</td><td lang="ar" dir="rtl">عطلة نهاية الأسبوع فقط</td></tr>
+    </tbody>
+  </table></div>
+  <div class="box tip"><div class="bi">
+    <p>Not sure between two adverbs? Write the exact number: <b>three times a week</b>, <b>twice a week</b>. It is always correct.</p>
+    <p class="ar" lang="ar">إذا احترت بين ظرفين، فاكتب العدد بالضبط: three times a week أو twice a week. هذا صحيح دائماً.</p>
+  </div></div>
+  <div class="bi">
+    <ul class="ex">
+      <li><b>She</b> always <b>plays</b> volleyball.</li>
+      <li><b>He</b> never <b>eats</b> fast food.</li>
+      <li><b>She goes</b> jogging twice a week.</li>
+      <li><b>He does</b> his homework on weekdays.</li>
+    </ul>
+    <p class="ar" lang="ar">الجدول عن شخص واحد (<bdi>he / she</bdi>)، فكل فعل يأخذ <b>s</b>: plays · eats · goes · does · watches. والظرف يأتي قبل الفعل، أما twice a week وevery day فتأتي في آخر الجملة.</p>
+  </div>
+  <h3>Your turn: Kerem's week <span class="ar" lang="ar" style="font-weight:600">دورك: أسبوع كرم</span></h3>
+  <div class="tw"><table class="chart">
+    <thead><tr><th>Activities</th><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th><th>Sun</th></tr></thead>
+    <tbody>
+      <tr><td>go swimming</td><td class="y">✓</td><td class="x">✗</td><td class="y">✓</td><td class="x">✗</td><td class="y">✓</td><td class="x">✗</td><td class="x">✗</td></tr>
+      <tr><td>eat breakfast</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td></tr>
+      <tr><td>play computer games</td><td class="x">✗</td><td class="x">✗</td><td class="x">✗</td><td class="x">✗</td><td class="x">✗</td><td class="x">✗</td><td class="x">✗</td></tr>
+      <tr><td>do karate</td><td class="x">✗</td><td class="y">✓</td><td class="x">✗</td><td class="y">✓</td><td class="x">✗</td><td class="x">✗</td><td class="x">✗</td></tr>
+      <tr><td>help his mum</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td><td class="x">✗</td></tr>
+    </tbody>
+  </table></div>
+  <details class="ans"><summary>Answer · الجواب</summary><div>
+    <ol class="key">
+      <li><span class="a">Kerem goes swimming three times a week.</span> <span class="note">(or: He often goes swimming.)</span></li>
+      <li><span class="a">He always eats breakfast.</span> <span class="note">(or: He eats breakfast every day.)</span></li>
+      <li><span class="a">He never plays computer games.</span></li>
+      <li><span class="a">He does karate twice a week.</span></li>
+      <li><span class="a">He usually helps his mum.</span></li>
+    </ol>
+  </div></details>
 </section>
 
 <section class="card u2" id="u2-write">
@@ -860,10 +1211,13 @@ aside{position:sticky;top:16px;display:grid;gap:14px;max-height:calc(100vh - 32p
     <li><label><input type="checkbox"><span>I can describe appearance with <b>is</b> and <b>has got</b>.</span><span class="ar" lang="ar">أصف الشكل بـ is و has got.</span></label></li>
     <li><label><input type="checkbox"><span>I know <b>What does she look like?</b> and <b>What is she like?</b></span><span class="ar" lang="ar">أفرّق بين سؤال الشكل وسؤال الشخصية.</span></label></li>
     <li><label><input type="checkbox"><span>I know 15 personality words.</span><span class="ar" lang="ar">أحفظ 15 صفة للشخصية.</span></label></li>
+    <li><label><input type="checkbox"><span>I can find the word for a meaning (<bdi>Part B</bdi>).</span><span class="ar" lang="ar">أعرف الصفة من وصف الشخص (الجزء B).</span></label></li>
     <li><label><input type="checkbox"><span>I can make comparatives: <b>-er / more / better / worse</b> + <b>than</b>.</span><span class="ar" lang="ar">أكوّن المقارنة: er أو more أو better أو worse ثم than.</span></label></li>
     <li><label><input type="checkbox"><span>I can write 4 sentences comparing two people.</span><span class="ar" lang="ar">أكتب 4 جمل أقارن فيها بين شخصين.</span></label></li>
     <li><label><input type="checkbox"><span>I answer <b>why</b> questions with <b>Because…</b></span><span class="ar" lang="ar">أجيب عن why بجملة تبدأ بـ Because.</span></label></li>
     <li><label><input type="checkbox"><span>I know <b>play / go / do</b> with sports.</span><span class="ar" lang="ar">أعرف play و go و do مع الرياضات.</span></label></li>
+    <li><label><input type="checkbox"><span>I can name a sport from its description (<bdi>Part E</bdi>).</span><span class="ar" lang="ar">أعرف الرياضة من وصفها (الجزء E).</span></label></li>
+    <li><label><input type="checkbox"><span>I can turn ticks in a chart into 5 sentences (<bdi>Part F</bdi>).</span><span class="ar" lang="ar">أحوّل علامات الجدول إلى 5 جمل (الجزء F).</span></label></li>
     <li><label><input type="checkbox"><span>I know the 6 frequency adverbs and where they go.</span><span class="ar" lang="ar">أحفظ ظروف التكرار الستة ومكانها في الجملة.</span></label></li>
     <li><label><input type="checkbox"><span>I add <b>-s</b> for he / she.</span><span class="ar" lang="ar">أضيف s للفعل مع he / she.</span></label></li>
     <li><label><input type="checkbox"><span>I can write a 50–60 word routine paragraph.</span><span class="ar" lang="ar">أكتب فقرة من 50–60 كلمة عن روتيني.</span></label></li>
@@ -881,27 +1235,32 @@ aside{position:sticky;top:16px;display:grid;gap:14px;max-height:calc(100vh - 32p
     <p class="kicker">Senaryo 3</p>
     <h2>Question distribution</h2>
     <p class="sub" lang="ar" dir="rtl" style="font-family:var(--f-ar)">توزيع الأسئلة في الاختبار</p>
-    <a class="drow u1" href="#u1-read"><span class="n">2</span><span class="t">Appearance &amp; Personality<small>Reading · <span>قراءة</span></small></span></a>
-    <a class="drow u1" href="#u1-write"><span class="n">1</span><span class="t">Appearance &amp; Personality<small>Writing: compare people · <span>كتابة: مقارنة شخصين</span></small></span></a>
-    <a class="drow u2" href="#u2-read"><span class="n">2</span><span class="t">Sports<small>Reading · <span>قراءة</span></small></span></a>
-    <a class="drow u2" href="#u2-write"><span class="n">1</span><span class="t">Sports<small>Writing: routine + frequency adverbs · <span>كتابة: الروتين وظروف التكرار</span></small></span></a>
+    <a class="drow u1" href="#u1-read"><span class="n">2</span><span class="t">Appearance &amp; Personality<small>Reading · <span>قراءة</span></small><em>A text questions (14) · B word meanings (14)</em></span></a>
+    <a class="drow u1" href="#u1-write"><span class="n">1</span><span class="t">Appearance &amp; Personality<small>Writing: compare people · <span>كتابة: مقارنة شخصين</span></small><em>C two sentences (10)</em></span></a>
+    <a class="drow u2" href="#u2-read"><span class="n">2</span><span class="t">Sports<small>Reading · <span>قراءة</span></small><em>D complete sentences (21) · E name the sport (16)</em></span></a>
+    <a class="drow u2" href="#u2-chart"><span class="n">1</span><span class="t">Sports<small>Writing: routine + frequency adverbs · <span>كتابة: الروتين وظروف التكرار</span></small><em>F chart → 5 sentences (25)</em></span></a>
     <div class="total"><span>Total · <span lang="ar" style="font-family:var(--f-ar)">المجموع</span></span><span class="big">6</span></div>
+    <p class="dnote">A–F = parts of the teacher's worksheets, (<bdi>points</bdi>). <a href="#ws">Answers ↓</a><br><span lang="ar" dir="rtl" style="font-family:var(--f-ar)">A–F أجزاء ورقتي الأستاذ، وبين القوسين الدرجة.</span></p>
     <p class="dnote">Biographies, Wild Animals: not in this exam.<br><span lang="ar" dir="rtl" style="font-family:var(--f-ar)">السير الذاتية والحيوانات البرية: ليست في هذا الاختبار.</span></p>
   </div>
   <nav class="toc" aria-label="Contents">
+    <a href="#ws" style="--u:var(--tip);--us:var(--tips)">Teacher's worksheets</a>
     <div class="h">Unit 1</div>
     <a href="#u1-q" class="u1">look like / is like</a>
     <a href="#u1-look" class="u1">Appearance</a>
     <a href="#u1-like" class="u1">Personality</a>
     <a href="#u1-comp" class="u1">Comparing people</a>
-    <a href="#u1-read" class="u1">Reading practice</a>
-    <a href="#u1-write" class="u1">Writing</a>
+    <a href="#u1-read" class="u1">Reading practice (A)</a>
+    <a href="#u1-mean" class="u1">Meaning → word (B)</a>
+    <a href="#u1-write" class="u1">Comparing: writing (C)</a>
     <div class="h">Unit 2</div>
     <a href="#u2-pgd" class="u2">play · go · do</a>
     <a href="#u2-present" class="u2">Present simple</a>
     <a href="#u2-freq" class="u2">Frequency adverbs</a>
-    <a href="#u2-read" class="u2">Reading practice</a>
-    <a href="#u2-write" class="u2">Writing</a>
+    <a href="#u2-read" class="u2">Reading practice (D)</a>
+    <a href="#u2-def" class="u2">Name the sport (E)</a>
+    <a href="#u2-chart" class="u2">Chart → sentences (F)</a>
+    <a href="#u2-write" class="u2">Routine paragraph</a>
     <div class="h">Practice</div>
     <a href="#drill">Quick drills</a>
     <a href="#check">Before the exam</a>
@@ -971,7 +1330,7 @@ function renderQuiz(box) {
 document.querySelectorAll('[data-quiz]').forEach(renderQuiz);
 
 /* Checklist ticks are remembered on this device only. */
-const KEY = 'eng7-s3-checks';
+const KEY = 'eng7-s3-checks-v2';
 const boxes = [...document.querySelectorAll('#checklist input')];
 try { const saved = JSON.parse(localStorage.getItem(KEY) || '[]'); boxes.forEach((b, i) => b.checked = !!saved[i]); } catch (e) {}
 boxes.forEach(b => b.addEventListener('change', () => { try { localStorage.setItem(KEY, JSON.stringify(boxes.map(x => x.checked))); } catch (e) {} }));
